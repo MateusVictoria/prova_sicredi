@@ -23,7 +23,7 @@ public class ChallengeTests extends TestBase {
     }
 
     @Test(priority = 1)
-    public void secondChallenge() throws InterruptedException {
+    public void secondChallenge() {
         HomePage homePage = GeneratePage.homePage().
                 goToHomePage().
                 selectTheme().
