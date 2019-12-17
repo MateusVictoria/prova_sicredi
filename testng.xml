@@ -5,14 +5,14 @@
         <parameter name="driverClass" value="ChromeDriver"/>
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="br.com.sicredi.tests.FirstChallengeTests"/>
+            <class name="br.com.sicredi.tests.ChallengeTests"/>
         </classes>
     </test> <!-- First Test -->
 <!--    <test name="PaymentTests.firefox" parallel="methods" thread-count="2">-->
 <!--        <parameter name="driverClass" value="FirefoxDriver"/>-->
 <!--        <parameter name="browser" value="firefox"/>-->
 <!--        <classes>-->
-<!--            <class name="br.com.sicredi.tests.FirstChallengeTests"/>-->
+<!--            <class name="br.com.sicredi.tests.ChallengeTests"/>-->
 <!--        </classes>-->
 <!--    </test> &lt;!&ndash; Second Test &ndash;&gt;-->
 </suite> <!-- Suite -->

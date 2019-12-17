@@ -27,14 +27,17 @@ public class CustomerPage extends BasePage {
     @FindBy(how = How.CSS, using = "#form-button-save")
     private WebElement saveButton;
 
-    @FindBy(how = How.CSS, using = "#report-success")
+    @FindBy(how = How.CSS, using = "#save-and-go-back-button")
+    private WebElement saveAndGoBackButton;
+
+    @FindBy(how = How.ID, using = "report-success")
     private WebElement successMessage;
 
     public CustomerPage(WebDriver driver) {
         super(driver);
     }
 
-    public CustomerPage fillFormAndSave() {
+    public CustomerPage fillForm() {
         Iterator<String> formDataAsIterator = CommonsGenerator.generateFormInfo();
 
         formFields.forEach(element -> waitForVisibilityOf(element).sendKeys(formDataAsIterator.next()));
@@ -43,8 +46,17 @@ public class CustomerPage extends BasePage {
         getEmployeer("Fixter").click();
 
         waitForVisibilityOf(creditLimitField).sendKeys("200");
+        return this;
+    }
+
+    public CustomerPage saveForm() {
         waitForVisibilityOf(saveButton).click();
         return this;
+    }
+
+    public HomePage saveFormAndGoBack(){
+        waitForVisibilityOf(saveAndGoBackButton).click();
+        return GeneratePage.homePage();
     }
 
     public String getSuccessMessage() {

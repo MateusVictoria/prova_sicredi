@@ -10,7 +10,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class CommonsGenerator {
-    private static Random random = new Random();
 
     private CommonsGenerator() {
         throw new IllegalStateException("CommonsGenerator class cannot be instantiated");

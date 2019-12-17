@@ -2,6 +2,7 @@ package br.com.sicredi.pageobjects;
 
 import org.openqa.selenium.*;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -24,6 +25,11 @@ public class BasePage {
 
     public WebElement waitForClickabilityOf(WebElement element) {
         wait.until(driverLambda -> element.isDisplayed() && element.isEnabled());
+        return element;
+    }
+
+    public WebElement waitForInvisibilityOf(WebElement element) {
+        wait.until(ExpectedConditions.invisibilityOf(element));
         return element;
     }
 
