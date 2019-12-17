@@ -66,7 +66,8 @@ public class CustomerPage extends BasePage {
     private WebElement getEmployeer(String text){
         return employeerDropDown.
                 stream().
-                filter(element -> waitForVisibilityOf(element).getText().equals(text)).findFirst().
+                filter(element -> waitForVisibilityOf(element).getText().equals(text)).
+                findFirst().
                 orElse(null);
     }
 }

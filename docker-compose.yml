@@ -9,4 +9,4 @@ services:
       - "4040:4040"
       - "5050:5050"
     volumes:
-      - ${PWD}/allure-results:/app/allure-results
+      - ./allure-results:/app/allure-results
