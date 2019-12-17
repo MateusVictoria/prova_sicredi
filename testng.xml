@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" thread-count="2">
+<suite name="Suite">
     <test name="PaymentTests.chrome" parallel="methods" thread-count="2">
         <parameter name="driverClass" value="ChromeDriver"/>
         <parameter name="browser" value="chrome"/>
         <classes>
-
+            <class name="br.com.sicredi.tests.FirstChallengeTests"/>
         </classes>
     </test> <!-- First Test -->
-    <test name="PaymentTests.firefox" parallel="methods" thread-count="2">
-        <parameter name="driverClass" value="FirefoxDriver"/>
-        <parameter name="browser" value="firefox"/>
-        <classes>
-
-        </classes>
-    </test> <!-- Second Test -->
+<!--    <test name="PaymentTests.firefox" parallel="methods" thread-count="2">-->
+<!--        <parameter name="driverClass" value="FirefoxDriver"/>-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <classes>-->
+<!--            <class name="br.com.sicredi.tests.FirstChallengeTests"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Second Test &ndash;&gt;-->
 </suite> <!-- Suite -->

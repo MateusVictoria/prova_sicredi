@@ -19,7 +19,7 @@ public class OptionsManager {
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--disable-popup-blocking");
-        chromeOptions.addArguments("--headless");
+//        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--log-level=3");
         chromeOptions.addArguments("--silent");
         return chromeOptions;
