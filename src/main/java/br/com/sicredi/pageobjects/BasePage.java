@@ -18,10 +18,6 @@ public class BasePage {
         wait = new WebDriverWait(driver, 30);
     }
 
-    protected Boolean waitForSpinnerToBeGone() {
-        return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class=\"Loader__Container-sc-1salt4h-0 ektexx\"]")));
-    }
-
     private WebElement waitVisibility(WebElement element) {
         wait.until(driverLambda -> element.isDisplayed());
         wait.until(driverLambda -> element.isEnabled());
@@ -29,12 +25,7 @@ public class BasePage {
     }
 
     protected void click(WebElement element) {
-        try {
             waitVisibility(element).click();
-        } catch (ElementClickInterceptedException | StaleElementReferenceException e) {
-            waitForSpinnerToBeGone();
-            waitVisibility(element).click();
-        }
     }
 
     protected void writeText(WebElement element, String text) {
@@ -42,7 +33,6 @@ public class BasePage {
     }
 
     protected String readText(WebElement element) {
-        waitForSpinnerToBeGone();
         return waitVisibility(element).getText();
     }
 

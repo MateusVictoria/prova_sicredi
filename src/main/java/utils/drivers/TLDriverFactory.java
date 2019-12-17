@@ -1,6 +1,6 @@
 package utils.drivers;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,10 +18,8 @@ public class TLDriverFactory {
 
     public static synchronized void setTLDriver(String browser) {
         if (browser.equals("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
             tlDriver.set(ThreadGuard.protect(new FirefoxDriver(OptionsManager.getFirefoxOptions())));
         } else if (browser.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
             tlDriver.set(ThreadGuard.protect(new ChromeDriver(OptionsManager.getChromeOptions())));
         }
     }

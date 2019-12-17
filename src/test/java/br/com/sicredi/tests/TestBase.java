@@ -5,7 +5,6 @@ import br.com.sicredi.tests.listeners.TestListener;
 import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import utils.drivers.TLDriverFactory;
 
@@ -14,7 +13,7 @@ import utils.drivers.TLDriverFactory;
 public class TestBase {
     private static final Object lock = new Object();
 
-    @BeforeClass
+    @BeforeClass(description = "Downloading and Setting browser drivers")
     @Parameters(value = {"driverClass"})
     public void setupDrivers(String driverClass) {
         if (driverClass.equals("ChromeDriver")){
@@ -25,7 +24,7 @@ public class TestBase {
     }
 
 
-    @BeforeMethod(description = "Configurando drivers")
+    @BeforeMethod(description = "Configuring drivers")
     @Parameters(value = {"browser"})
     public void setup(@Optional String browser) {
         synchronized (lock) {
@@ -34,7 +33,7 @@ public class TestBase {
         }
     }
 
-    @AfterMethod(description = "Terminando drivers e removendo variaveis ThreadLocals")
+    @AfterMethod(description = "Quitting drivers and removing ThreadLocal varibles")
     public void teardown() {
         synchronized (lock) {
             TLDriverFactory.getTLDriver().quit();
