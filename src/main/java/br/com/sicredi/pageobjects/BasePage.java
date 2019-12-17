@@ -2,7 +2,6 @@ package br.com.sicredi.pageobjects;
 
 import org.openqa.selenium.*;
 
-
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -18,22 +17,15 @@ public class BasePage {
         wait = new WebDriverWait(driver, 10);
     }
 
-    private WebElement waitVisibility(WebElement element) {
-        wait.until(driverLambda -> element.isDisplayed());
-        wait.until(driverLambda -> element.isEnabled());
+    public WebElement waitForVisibilityOf(WebElement element){
+        wait.until(webDriver -> element.isDisplayed());
         return element;
     }
 
-    protected void click(WebElement element) {
-            waitVisibility(element).click();
+    public WebElement waitForClickabilityOf(WebElement element) {
+        wait.until(driverLambda -> element.isDisplayed() && element.isEnabled());
+        return element;
     }
 
-    protected void writeText(WebElement element, String text) {
-        waitVisibility(element).sendKeys(text);
-    }
-
-    protected String readText(WebElement element) {
-        return waitVisibility(element).getText();
-    }
 
 }
