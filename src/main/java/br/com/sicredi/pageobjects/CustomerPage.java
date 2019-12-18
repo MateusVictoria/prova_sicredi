@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import utils.commons.CommonsGenerator;
+import utils.commons.JsonMapper;
 
 import java.util.Iterator;
 import java.util.List;
@@ -38,7 +38,7 @@ public class CustomerPage extends BasePage {
     }
 
     public CustomerPage fillForm() {
-        Iterator<String> formDataAsIterator = CommonsGenerator.generateFormInfo();
+        Iterator<String> formDataAsIterator = JsonMapper.getDataFromJson();
 
         formFields.forEach(element -> waitForVisibilityOf(element).sendKeys(formDataAsIterator.next()));
 
